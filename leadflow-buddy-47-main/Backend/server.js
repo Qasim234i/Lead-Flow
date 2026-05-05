@@ -22,6 +22,13 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.post('/auth/login', async (req, res) => {
+  res.json({ message: "Login route working! Use /api/auth/login instead" });
+});
+
+app.get('/', (req, res) => {
+  res.json({ message: "Backend is alive!" });
+});
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
