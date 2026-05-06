@@ -17,7 +17,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://lead-flow-uya3.vercel.app',  // Your React dev server
+  origin: 'https://lead-flow-qcl3.vercel.app',  // Your React dev server
   credentials: true,  // If using cookies/auth tokens
 }));
 app.use(express.json());
