@@ -66,10 +66,10 @@ export const LeadFormDialog = ({ open, onOpenChange, lead, onSaved }: Props) => 
     setSaving(true);
     try {
       if (lead) {
-        await api.put(`/leads/${lead._id}`, form);
+        await api.put(`/api/leads/${lead._id}`, form);
         toast.success("Lead updated");
       } else {
-        await api.post("/leads", form);
+        await api.post("/api/leads", form);
         toast.success("Lead created");
       }
       onSaved();
