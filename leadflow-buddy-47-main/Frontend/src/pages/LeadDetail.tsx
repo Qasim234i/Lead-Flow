@@ -46,8 +46,8 @@ const LeadDetail = () => {
   const load = async () => {
     setLoading(true);
     const [l, n] = await Promise.all([
-      api.get(`/leads/${id}`),
-      api.get(`/notes/${id}`),
+      api.get(`/api/leads/${id}`),
+      api.get(`/api/notes/${id}`),
     ]);
     setLead(l.data.data);
     setNotes(n.data.data);
