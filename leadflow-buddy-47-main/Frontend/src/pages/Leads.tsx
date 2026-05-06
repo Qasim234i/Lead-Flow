@@ -31,7 +31,7 @@ const Leads = () => {
     if (status !== "all") params.status = status;
     if (source !== "all") params.source = source;
     if (assignedTo !== "all") params.assignedTo = assignedTo;
-    const { data } = await api.get("/leads", { params });
+    const { data } = await api.get("/api/leads", { params });
     setLeads(data.data);
     setLoading(false);
   };
