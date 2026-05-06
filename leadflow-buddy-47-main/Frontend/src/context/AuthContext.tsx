@@ -34,6 +34,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const login = async (email: string, password: string) => {
     const { data } = await api.post("/auth/login", { email, password });
+      console.log("Login response:", data);
     localStorage.setItem("leadflow_token", data.token);
     localStorage.setItem("leadflow_user", JSON.stringify(data.user));
     setToken(data.token);
