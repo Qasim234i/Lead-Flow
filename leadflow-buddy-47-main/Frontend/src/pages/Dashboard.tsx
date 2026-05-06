@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     api
-      .get("/dashboard")
+      .get("/api/dashboard")
       .then((res) => setData(res.data.data))
       .finally(() => setLoading(false));
   }, []);
