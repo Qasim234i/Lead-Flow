@@ -17,9 +17,12 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://lead-flow-qcl3.vercel.app',  // Your React dev server
-  credentials: true,  // If using cookies/auth tokens
+  origin: "https://lead-flow-fee.vercel.app",
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
+app.options("*", cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.post('/auth/login', async (req, res) => {
