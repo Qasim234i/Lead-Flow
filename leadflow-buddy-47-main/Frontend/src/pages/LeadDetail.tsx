@@ -58,7 +58,7 @@ const LeadDetail = () => {
 
   const updateStatus = async (status: string) => {
     if (!lead) return;
-    const { data } = await api.put(`/leads/${lead._id}`, { status });
+    const { data } = await api.put(`/api/leads/${lead._id}`, { status });
     setLead(data.data);
     toast.success(`Status updated to ${status}`);
   };
@@ -68,9 +68,9 @@ const LeadDetail = () => {
     if (!noteContent.trim() || !user) return;
     setPosting(true);
     try {
-      await api.post("/notes", { leadId: id, content: noteContent.trim(), createdBy: user.name });
+      await api.post("/api/notes", { leadId: id, content: noteContent.trim(), createdBy: user.name });
       setNoteContent("");
-      const n = await api.get(`/notes/${id}`);
+      const n = await api.get(`/api/notes/${id}`);
       setNotes(n.data.data);
     } finally {
       setPosting(false);
@@ -78,9 +78,9 @@ const LeadDetail = () => {
   };
 
   const remove = async () => {
-    await api.delete(`/leads/${id}`);
+    await api.delete(`/api/leads/${id}`);
     toast.success("Lead deleted");
-    navigate("/leads");
+    navigate("/api/leads");
   };
 
   if (loading) {
